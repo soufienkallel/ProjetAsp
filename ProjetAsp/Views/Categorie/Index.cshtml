@@ -10,6 +10,7 @@
 
     <div class="card-header">
         <i class="fas fa-table me-1"></i>
+
         Liste des categories
     </div>
 
@@ -31,8 +32,8 @@
                 @Html.DisplayFor(modelItem => item.CatName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.CatID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.CatID">Details</a> |
+                <a asp-action="Edit" asp-route-id="@item.CatID">Edit</a> |
                 <a asp-action="Delete" asp-route-id="@item.CatID">Delete</a>
             </td>
         </tr>
@@ -43,4 +44,9 @@
     </div>
 
 
-</div>
+</div> 
+
+
+
+
+

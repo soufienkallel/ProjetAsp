@@ -7,16 +7,18 @@ namespace ProjetAsp.Models
         public ApplicationContext(DbContextOptions options)
             : base(options){ }
        
-        public DbSet<Categorie> Categories { get; set; } 
-        public DbSet<Film> Films { get; set; }
-      /*  protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            // Set the default value for the UserType property
-            modelBuilder.Entity<User>()
-                .Property(u => u.UserType)
-                .HasDefaultValue("user");
+        public DbSet<Categorie> Categories { get; set; }
 
-            base.OnModelCreating(modelBuilder);
-       */ }
+        public DbSet<Film> Films { get; set; }
+        /*  protected override void OnModelCreating(DbModelBuilder modelBuilder)
+          {
+              // Set the default value for the UserType property
+              modelBuilder.Entity<User>()
+                  .Property(u => u.UserType)
+                  .HasDefaultValue("user");
+
+              base.OnModelCreating(modelBuilder);
+         */
+    }
 
     }

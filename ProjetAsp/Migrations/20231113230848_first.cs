@@ -5,24 +5,11 @@
 namespace ProjetAsp.Migrations
 {
     /// <inheritdoc />
-    public partial class Film : Migration
+    public partial class first : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Categorie",
-                table: "Categorie");
-
-            migrationBuilder.RenameTable(
-                name: "Categorie",
-                newName: "Categories");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Categories",
-                table: "Categories",
-                column: "CatID");
-
             migrationBuilder.CreateTable(
                 name: "Films",
                 columns: table => new
@@ -33,23 +20,23 @@ namespace ProjetAsp.Migrations
                     FilmDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Trailer = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CatId = table.Column<int>(type: "int", nullable: false)
+                    CatID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Films", x => x.FilmId);
                     table.ForeignKey(
-                        name: "FK_Films_Categories_CatId",
-                        column: x => x.CatId,
+                        name: "FK_Films_Categories_CatID",
+                        column: x => x.CatID,
                         principalTable: "Categories",
                         principalColumn: "CatID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Films_CatId",
+                name: "IX_Films_CatID",
                 table: "Films",
-                column: "CatId");
+                column: "CatID");
         }
 
         /// <inheritdoc />
@@ -57,19 +44,6 @@ namespace ProjetAsp.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Films");
-
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Categories",
-                table: "Categories");
-
-            migrationBuilder.RenameTable(
-                name: "Categories",
-                newName: "Categorie");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Categorie",
-                table: "Categorie",
-                column: "CatID");
         }
     }
 }

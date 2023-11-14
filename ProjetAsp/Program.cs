@@ -25,6 +25,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+//category
 app.MapControllerRoute(
         name: "categoryCreate",
         pattern: "Categories/Create",
@@ -38,6 +40,12 @@ app.MapControllerRoute(
     defaults: new { controller = "Categorie", action = "Index" }
 );
 
+//film
+app.MapControllerRoute(
+    name: "filmList",
+    pattern: "Films/Index",
+    defaults: new { controller = "Film", action = "Index" }
+);
 
 app.MapControllerRoute(
 
