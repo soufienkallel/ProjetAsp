@@ -8,6 +8,5 @@ namespace ProjetAsp.Models
         public int CatID { get; set; }
         public string? CatName { get; set;}
 
-        public List<Film> Films { get; set; }
     }
 }
