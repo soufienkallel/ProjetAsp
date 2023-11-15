@@ -11,8 +11,8 @@ using ProjetAsp.Models;
 namespace ProjetAsp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20231113230848_first")]
-    partial class first
+    [Migration("20231115142402_film")]
+    partial class film
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,7 +33,6 @@ namespace ProjetAsp.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CatID"));
 
                     b.Property<string>("CatName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CatID");
@@ -53,19 +52,15 @@ namespace ProjetAsp.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("FilmDescription")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FilmName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Trailer")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("FilmId");

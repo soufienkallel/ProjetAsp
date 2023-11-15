@@ -92,16 +92,20 @@ namespace ProjetAsp.Controllers
         // GET: CategorieController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            Categorie categorie =
+               context.Categories.Find(id);
+            return View(categorie);
         }
 
         // POST: CategorieController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, Categorie categorie)
         {
             try
             {
+                context.Categories.Remove(categorie);
+                context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4ebJn8/yu4MCTGUp5LYNfMWghSi31/kTua6AgoOCPZY=",
+  "Hash": "CIkG+7wcka/V+6weck8QxMf31UEN7t+ouss1bcQjN/I=",
   "Source": "ProjetAsp",
   "BasePath": "_content/ProjetAsp",
   "Mode": "Default",
@@ -1120,6 +1120,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Lenovo\\source\\repos\\ProjetAsp\\ProjetAsp\\wwwroot\\uploads\\0c0d6479-8fc8-4004-82fe-ecc787bee64c_967a953f-087b-450b-b6c3-31eb936a6a04_JPEG_example_flower.jpg",
+      "SourceId": "ProjetAsp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Lenovo\\source\\repos\\ProjetAsp\\ProjetAsp\\wwwroot\\",
+      "BasePath": "_content/ProjetAsp",
+      "RelativePath": "uploads/0c0d6479-8fc8-4004-82fe-ecc787bee64c_967a953f-087b-450b-b6c3-31eb936a6a04_JPEG_example_flower.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\0c0d6479-8fc8-4004-82fe-ecc787bee64c_967a953f-087b-450b-b6c3-31eb936a6a04_JPEG_example_flower.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Lenovo\\source\\repos\\ProjetAsp\\ProjetAsp\\wwwroot\\uploads\\967a953f-087b-450b-b6c3-31eb936a6a04_JPEG_example_flower.jpg",
+      "SourceId": "ProjetAsp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Lenovo\\source\\repos\\ProjetAsp\\ProjetAsp\\wwwroot\\",
+      "BasePath": "_content/ProjetAsp",
+      "RelativePath": "uploads/967a953f-087b-450b-b6c3-31eb936a6a04_JPEG_example_flower.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\967a953f-087b-450b-b6c3-31eb936a6a04_JPEG_example_flower.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Lenovo\\source\\repos\\ProjetAsp\\ProjetAsp\\wwwroot\\uploads\\JPEG_example_flower.jpg",
+      "SourceId": "ProjetAsp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Lenovo\\source\\repos\\ProjetAsp\\ProjetAsp\\wwwroot\\",
+      "BasePath": "_content/ProjetAsp",
+      "RelativePath": "uploads/JPEG_example_flower.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\JPEG_example_flower.jpg"
     }
   ]
 }

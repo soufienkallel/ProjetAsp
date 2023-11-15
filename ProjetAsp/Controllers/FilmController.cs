@@ -25,9 +25,12 @@ namespace ProjetAsp.Controllers
         }
 
         // GET: FilmController
-        public ActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Film> films = context.Films.ToList();
+            var films = await context.Films
+                .Include(f => f.Categorie)
+                .ToListAsync();
+
             return View(films);
         }
 
@@ -49,49 +52,66 @@ namespace ProjetAsp.Controllers
         [ValidateAntiForgeryToken]
         // FilmsController.cs
         [HttpPost]
-        public async Task<IActionResult> Create(Film film, IFormFile file)
+        public async Task<IActionResult> Create(Film film, IFormFile Image)
         {
-            if (ModelState.IsValid) // Check if the model state is valid
+            if (ModelState.IsValid)
             {
                 try
                 {
-                    if (file != null && file.Length > 0)
+                    if (Image != null && Image.Length > 0)
                     {
-                        var uploadsPath = Path.Combine(hostingEnvironment.WebRootPath, "uploads");
-                        var uniqueFileName = $"{Guid.NewGuid()}_{file.FileName}";
-                        var filePath = Path.Combine(uploadsPath, uniqueFileName);
-
-                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        // Vérifier si le fichier est une image
+                        if (!Image.ContentType.StartsWith("image/"))
                         {
-                            await file.CopyToAsync(stream);
+                            ModelState.AddModelError("Image", "Le fichier téléchargé doit être une image.");
+                            ViewBag.Categories = context.Categories.ToList();
+                            return View(film);
                         }
 
+                       
+
+                        // Générer un nom unique pour le fichier
+                        var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(Image.FileName);
+                        var fileExtension = Path.GetExtension(Image.FileName);
+                        var uniqueFileName = $"{Guid.NewGuid()}_{fileNameWithoutExtension}{fileExtension}";
+
+                        // Chemin de stockage des images dans le dossier wwwroot/uploads
+                        var uploadsPath = Path.Combine(hostingEnvironment.WebRootPath, "uploads");
+
+                        // Chemin complet du fichier sur le serveur
+                        var filePath = Path.Combine(uploadsPath, uniqueFileName);
+
+                        // Enregistrer le fichier sur le serveur
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await Image.CopyToAsync(stream);
+                        }
+
+                        // Associer le nom unique de fichier à la propriété Image du film
                         film.Image = uniqueFileName;
                     }
 
+                    // Sauvegarder le film en base de données
                     context.Films.Add(film);
-                    context.SaveChanges();
+                    await context.SaveChangesAsync();
 
                     return RedirectToAction("Index");
                 }
                 catch (Exception ex)
                 {
-                    // Log the exception for further investigation
-                    ModelState.AddModelError(string.Empty, "An error occurred while saving the film.");
-                    ViewBag.Categories = context.Categories.ToList();
-                    return View(film);
+                    // Logguer l'exception pour une investigation ultérieure
+                    ModelState.AddModelError(string.Empty, "Une erreur s'est produite lors de l'enregistrement du film.");
                 }
             }
 
-            // If ModelState is not valid, reload the ViewBag.Categories and return to the Create view
+            // Si le ModelState n'est pas valide ou une erreur s'est produite, recharger ViewBag.Categories et revenir à la vue Create
             ViewBag.Categories = context.Categories.ToList();
             return View(film);
         }
+    
 
-
-
-        // GET: FilmController/Edit/5
-        public ActionResult Edit(int id)
+    // GET: FilmController/Edit/5
+    public ActionResult Edit(int id)
         {
             return View();
         }

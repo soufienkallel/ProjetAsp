@@ -6,6 +6,8 @@ namespace ProjetAsp.Models
     {
         [Key]
         public int CatID { get; set; }
-        public string CatName { get; set;}
+        public string? CatName { get; set;}
+
+        public List<Film> Films { get; set; }
     }
 }
